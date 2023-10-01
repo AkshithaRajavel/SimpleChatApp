@@ -26,7 +26,7 @@ function Room(){
             setCnt(cnt)
             setLiveusers(liveUsers)
         })
-        fetch(`http://localhost:4000/api/joinRoom?roomId=${roomId}`,{
+        fetch(`/api/joinRoom?roomId=${roomId}`,{
             headers:{
                     'Authorization': `Bearer ${token}`
             }

@@ -22,7 +22,7 @@ function Home(){
         const token = window.localStorage.getItem("token")
         socket.auth.token = token
         socket.connect()
-        fetch("http://localhost:4000/api/getRooms",{
+        fetch("/api/getRooms",{
             headers:{
                 'Authorization': `Bearer ${token}`
             }

@@ -2,7 +2,7 @@ function Signup(){
     function submit(){
         const email = (document.getElementById("email") as HTMLInputElement).value
         const password = (document.getElementById("password") as HTMLInputElement).value
-        fetch('http://localhost:4000/api/signup',
+        fetch('/api/signup',
         {
             method:"POST",
             headers: {

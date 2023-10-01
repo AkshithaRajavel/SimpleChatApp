@@ -19,7 +19,7 @@ function Login(){
             const payload = await response.json()
             setIsLoggedIn(true)
             setUser(payload.email)
-            const Socket = io("http://localhost:4000",{
+            const Socket = io("/",{
                 auth:{
                 token:payload.token
                 }

@@ -16,7 +16,7 @@ function App() {
   useEffect(()=>{
     const token = window.localStorage.getItem("token")
     if(token){
-      fetch("http://localhost:4000/api/isLoggedIn",{
+      fetch("/api/isLoggedIn",{
       headers:{
         'Authorization': `Bearer ${token}`
     }
@@ -24,7 +24,7 @@ function App() {
     .then((data)=>{
       setIsLoggedIn(data.status)
       setUser(data.email)
-      const Socket = io("http://localhost:4000",{
+      const Socket = io("/",{
         auth:{
           token:token
         }
