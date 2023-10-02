@@ -28,7 +28,10 @@ function Home(){
             }
         })
         .then(response=>response.json())
-        .then(data=>{setRooms(data.rooms);})
+        .then(data=>{
+            for(let room of data.rooms)socket.emit("getRoomCount",{roomId:room._id})
+            setRooms(data.rooms);
+        })
         return ()=>{
             socket.removeAllListeners("roomCount");
         }

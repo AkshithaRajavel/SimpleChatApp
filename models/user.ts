@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt"
+import { userType } from "../types";
 const userSchema = new mongoose.Schema({
     email :  {type:String,required:true},
     password : {type:String,required:true}}
@@ -11,9 +12,5 @@ userSchema.pre("save", async function (next) {
     }
     next();
   });
-  interface userType{
-    email:string,
-    password:string
-}
 const model = mongoose.model<userType>("User",userSchema)
 export default model<userType>

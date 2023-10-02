@@ -1,8 +1,8 @@
 function Signup(){
-    function submit(){
+    async function submit(){
         const email = (document.getElementById("email") as HTMLInputElement).value
         const password = (document.getElementById("password") as HTMLInputElement).value
-        fetch('/api/signup',
+        const response  = await fetch('/api/signup',
         {
             method:"POST",
             headers: {
@@ -10,8 +10,12 @@ function Signup(){
               },
             body:JSON.stringify({email:email,password:password})
         }
-        ).then(()=>console.log("success")).catch(()=>console.log("error"))
-        window.location.href = "/login"
+        )
+        if(response.status == 200){window.location.href = "/login"}
+        else{
+            const payload = await response.json();
+            (document.getElementById("error")as HTMLDivElement).innerText = payload.message
+        }
         return ;
     }
     return(
@@ -24,6 +28,7 @@ function Signup(){
         <input id="password"/>
         </label>
         <button onClick={submit}>signup</button>
+        <div id="error"></div>
         </>
     )
 }

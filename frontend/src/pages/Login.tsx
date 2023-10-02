@@ -28,6 +28,10 @@ function Login(){
             window.localStorage.setItem("token",payload.token)
             window.location.href = "/"
         }
+        else{
+            const payload = await response.json();
+            (document.getElementById("error")as HTMLDivElement).innerText = payload.message
+        }
         return ;
     }
     return(
@@ -40,6 +44,7 @@ function Login(){
         <input id="password"/>
         </label>
         <button onClick={submit}>login</button>
+        <div id="error"></div>
         </>
     )
 }
