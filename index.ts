@@ -4,7 +4,7 @@ import jwt, { JwtPayload } from "jsonwebtoken"
 import "dotenv/config"
 import App from "./app"
 import * as db from "./database"
-import {auth,validatePassword} from "./middleware"
+import {auth,validatePassword} from "./middlewares"
 const app = App(db,auth,validatePassword)
 const server = http.createServer(app)
 const io = new Server(server)
