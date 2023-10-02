@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "full stack project for prograd training",
   "main": "index.js",
-  "engines": {
-    "node": "18.x"
-  },
   "scripts": {
     "test": "tsc && npx jest",
     "start": "tsc && node index.js"
